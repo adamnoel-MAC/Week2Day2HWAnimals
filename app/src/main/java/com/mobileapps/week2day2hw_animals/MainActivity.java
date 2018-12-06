@@ -1,5 +1,6 @@
 package com.mobileapps.week2day2hw_animals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,10 +18,13 @@ RecyclerView rvRecyclerView;
 TextView tvAnimalName;
 Animal animal;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Context context;
 
         rvRecyclerView = findViewById(R.id.rvRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -28,7 +32,6 @@ Animal animal;
 
         rvRecyclerView.setLayoutManager(layoutManager);
         rvRecyclerView.setAdapter(recyclerViewAdapter);
-
     }
 
     public ArrayList<Animal> getAnimals() {
@@ -49,14 +52,14 @@ Animal animal;
         String name = tvAnimalName.getText().toString();
         Log.d("TAG", "ivClick: name: " + name);
 
-        Intent sendIntent = new Intent(this, AnimalDetails.class);
-        Bundle sbundle = new Bundle();
-
-        sbundle.putString("AnimalName",name);
-        sbundle.putSerializable("animal", getThisItemsAnimal());
-
-        sendIntent.putExtra("bundle", sbundle);
-        startActivity(sendIntent);
+//        Intent sendIntent = new Intent(this, AnimalDetails.class);
+//        Bundle sbundle = new Bundle();
+//
+//        sbundle.putString("AnimalName",name);
+//        sbundle.putSerializable("animal", this.animal);
+//
+//        sendIntent.putExtra("bundle", sbundle);
+//        startActivity(sendIntent);
         finish();
     }
 }

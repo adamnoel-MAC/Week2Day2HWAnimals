@@ -35,22 +35,24 @@ public class AnimalDetails extends AppCompatActivity {
         Bundle extrasBundle = getIntent().getBundleExtra("bundle");
         if(extrasBundle != null) {
 
-            String AnimalName = extrasBundle.getString("AnimalName");
+            //String AnimalName = extrasBundle.getString("AnimalName");
             String AnimalNameCk;
-            tvAnimalName.setText(AnimalName);
+            Animal animal = extrasBundle.getParcelable("animal");
+            AnimalNameCk = animal.getAnimalName();
+            tvAnimalName.setText(AnimalNameCk );
 
-            Log.d("TAG", "onCreate: ");
+            Log.d("TAG", "onCreate: AnimalNameCk: " + AnimalNameCk );
 
-            list = ;
-
-            for (int i=0; i < list.size(); i++){
-                Log.d("TAG", "AnimalDetails onCreate: for loop i: " + i);
-                AnimalNameCk = list.get(i).animalName;
-                Log.d("TAG", "AnimalDetails onCreate: AnimalNameCk " + AnimalNameCk);
-                if (AnimalName != null && AnimalNameCk.compareTo(AnimalName) == 0) {
-                    Log.d("TAG", "AnimalDetails onCreate: Found");
-                }
-            }
+//            list = ;
+//
+//            for (int i=0; i < list.size(); i++){
+//                Log.d("TAG", "AnimalDetails onCreate: for loop i: " + i);
+//                AnimalNameCk = list.get(i).animalName;
+//                Log.d("TAG", "AnimalDetails onCreate: AnimalNameCk " + AnimalNameCk);
+//                if (AnimalName != null && AnimalNameCk.compareTo(AnimalName) == 0) {
+//                    Log.d("TAG", "AnimalDetails onCreate: Found");
+//                }
+//            }
         } //Should not get to this activity unless clicking on Animal Pic.
     }
 }
